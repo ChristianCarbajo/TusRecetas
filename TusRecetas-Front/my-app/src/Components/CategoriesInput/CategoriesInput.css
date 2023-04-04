@@ -32,8 +32,8 @@
     width: 100%;
     max-height: 200px;
     overflow-y: auto;
-    background-color: #fff;
-    color: #fff;
+    background-color: #050505;
+    color: #080808;
     border: 1px solid #ccc;
     z-index: 1;
     list-style-type: none;
@@ -51,5 +51,5 @@
   .dropdown__category:hover,
   .dropdown__category--selected {
     background-color: #FDE9D7;
-    color: #fff;
+    color: #ee1010;
   }

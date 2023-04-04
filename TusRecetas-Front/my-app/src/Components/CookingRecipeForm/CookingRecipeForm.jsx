@@ -1,6 +1,7 @@
 import "./CookingRecipeForm.css"
 import SaveButton from "../../IMG/guardar-el-archivo.png"
 import { BsPlusSquareFill } from "react-icons/bs";
+import { BiSave } from "react-icons/bi";
 import { IoMdReturnLeft } from "react-icons/io";
 import toast, { Toaster } from 'react-hot-toast';
 import ApiPostService from '../../Services/ApiPostService';
@@ -15,7 +16,7 @@ const CookingRecipeForm = () => {
 
     const categories = ["Primer Plato", "Segundo Plato", "Postre", "Vegetariano"]
 
-    let [item, setItem] = useState({ categories: categories[0] })
+    let [item, setItem] = useState({ categories: "" })
 
     let [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -23,7 +24,7 @@ const CookingRecipeForm = () => {
 
     const notify = () => toast('Receta añadida! ');
 
-    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const [selectedCategory, setSelectedCategory] = useState("");
     
     const handleSelectedCategoryChange = (category) => {
         setSelectedCategory(category);
@@ -45,25 +46,6 @@ const CookingRecipeForm = () => {
         notify()
         setIsSubmitted(true)
     }
-    useEffect(()=>{
-        if (State) {
-            
-        }
-    })
-    function TextAreaGenerator() {
-        const [count, setCount] = useState(0);
-        const [textAreas, setTextAreas] = useState([]);
-      
-        const handleClick = () => {
-          setCount(count + 1);
-          setTextAreas((prevTextAreas) => [
-            ...prevTextAreas,
-            <div className='Form-ta' key={count + 1}>
-              <label id={`label-${count}`}>Paso {count + 1}:</label>
-              <textarea rows="8" type="text" onChange={handleChange} name="steps" id={`textarea-${count}`} required/>
-            </div>,
-          ]);
-        };
 
     return (
         <div className='CookingRecipeForm-Form'>
@@ -81,13 +63,14 @@ const CookingRecipeForm = () => {
                         <div className="form-row-div">
                             <input type="text" name="title" onChange={handleChange} id="" placeholder="Título" required />
                         </div>
+                    </div>
                     <div className='Form-row'>
                         <label>URL de la imagen:</label>
                         <div className="form-row-div">
                             <input type="url" name="url" onChange={handleChange} autoComplete="off" placeholder="Url de la Imagén" required pattern="https?://.+" />
                         </div>
                     </div>
-                    </div>
+                   
                     <div className='Form-row'>
                         <label>Categoría:</label>
                         <CategoriesInput categories={categories} selectedcategory={selectedCategory} onSelectedcategoryChange={handleSelectedCategoryChange} />
@@ -96,19 +79,24 @@ const CookingRecipeForm = () => {
                         <label>Ingredientes:</label>
                         <div className="form-row-div">
                             <textarea type="text" name="ingredients" onChange={handleChange} id="" placeholder="Ingredientes" required />
-                        </div>
+                        </div>                      
                     </div>
-                    <div>
-                    <h3>Dale al botón + para añadir los pasos de tu receta</h3>
-                    <button onClick={handleClick}><BsPlusSquareFill/></button>
-                    <button className='b-post'><image href={SaveButton}/></button>
+                    <div className='Form-row'>
+                        <label>Receta:</label>
+                        <div className="form-row-div">
+                            <textarea type="text" name="recipe" onChange={handleChange} id="" placeholder="Receta" required />
+                        </div>                      
                     </div>
+                   <div className="div-b-post">
+                    <button className="b-post"><BiSave /></button> 
+                   </div>
+                                     
                 </form>
             }
-
+            
         </div>
     )
             
 }
-}
+
 export default CookingRecipeForm

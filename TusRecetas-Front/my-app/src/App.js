@@ -1,27 +1,29 @@
-import logo from './logo.svg';
+import logo from './IMG/logo.png';
 import './App.css';
-import CookingRecipeForm from './Components/CookingRecipeForm/CookingRecipeForm';
+import FormPageView from './View/FormPageView';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import MainPage from './Components/MainPage/MainPage';
+import CookingRecipePage from './Components/CookingRecipePage/CookingRecipePage'
+import { Link } from 'react-router-dom';
 
 function App() {
-    // const router = createBrowserRouter([{
-    //      path: "/",
-    //      element: <MainPage />
-    //    }, {
-    //       path: "/CookingRecipeForm",
-    //       element: <CookingRecipeForm />
-    //      },{
-    //        path: "/CookingRecipePage",
-    //        element: <CookingRecipePage />
-    //     }
-    //   ]);
+    const router = createBrowserRouter([{
+      path: "/",
+       element: <MainPage />
+    }, {
+        path: "/CookingRecipeForm",
+        element: <FormPageView />
+       },{
+        path: "/CookingRecipePage",
+         element: <CookingRecipePage />
+}]);
       return (
-        <div>
-            <CookingRecipeForm />
+      
+        <div className="App">
+       
+             
+              <RouterProvider router={router} />
         </div>
-        // <div className="App">
-        //       <RouterProvider router={router} />
-        // </div>
       );
 
 }

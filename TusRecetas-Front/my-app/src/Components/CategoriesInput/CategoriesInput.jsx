@@ -13,7 +13,7 @@ const CategoriesInput = ({ categories, selectedcategory, onSelectedcategoryChang
   return (
     <div className="dropdown">
       <div className="dropdown__header" onClick={() => setIsOpen(!isOpen)}>
-        <input type="text" name="genre" value={selectedcategory} required readOnly/> 
+        <input type="text" name="categories" placeholder='Categoría' value={selectedcategory} required readOnly/> 
         {isOpen? <BsFillCaretUpFill /> : <BsFillCaretDownFill />}
       </div>
       {isOpen && (

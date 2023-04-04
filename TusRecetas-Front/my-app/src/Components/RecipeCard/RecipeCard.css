@@ -1,0 +1,32 @@
+.cardContainer {
+    margin: 10% 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.cardImage {
+    display: flex;
+    position: relative;
+    filter: drop-shadow(0 0 0 #fff);
+    transition: all 0.3s;
+}
+
+.cardImage img {
+    
+    height:  55.75vh;
+    width: 20.49vw;
+    
+
+
+}
+.cardText{
+    font-weight: 100;
+    letter-spacing: 0.5vh;
+    cursor: pointer;
+  
+}
+
+.cardText:hover{
+font-weight: bold;
+}
