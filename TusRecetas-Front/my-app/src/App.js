@@ -2,14 +2,14 @@ import logo from './IMG/logo.png';
 import './App.css';
 import FormPageView from './View/FormPageView';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import MainPage from './Components/MainPage/MainPage';
+import MainPageView from './View/MainPageView';
 import CookingRecipePage from './Components/CookingRecipePage/CookingRecipePage'
 import { Link } from 'react-router-dom';
 
 function App() {
     const router = createBrowserRouter([{
       path: "/",
-       element: <MainPage />
+       element: <MainPageView />
     }, {
         path: "/CookingRecipeForm",
         element: <FormPageView />

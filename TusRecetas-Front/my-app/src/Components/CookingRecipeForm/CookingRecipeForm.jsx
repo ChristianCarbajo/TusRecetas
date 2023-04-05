@@ -12,11 +12,11 @@ import {useLocation, useNavigate } from 'react-router-dom';
 
 const CookingRecipeForm = () => {
 
-    let url = "http://localhost:8080/api/v1/cookingrecipe"
+    let url = "http://localhost:8080/api/v1/cookingrecipes"
 
-    const categories = ["Primer Plato", "Segundo Plato", "Postre", "Vegetariano"]
+    const categories = ["Elige una categoría","Primer Plato", "Segundo Plato", "Postre", "Vegetariano"]
 
-    let [item, setItem] = useState({ categories: "" })
+    let [item, setItem] = useState({ categories: categories[0]})
 
     let [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -24,12 +24,12 @@ const CookingRecipeForm = () => {
 
     const notify = () => toast('Receta añadida! ');
 
-    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
     
     const handleSelectedCategoryChange = (category) => {
         setSelectedCategory(category);
         let temp_item = item
-        temp_item["Categoría"] = category
+        temp_item["categories"] = category
         setItem(temp_item)
     };
     function handleChange(event) {
@@ -46,6 +46,12 @@ const CookingRecipeForm = () => {
         notify()
         setIsSubmitted(true)
     }
+    const [showInstructions, setShowInstructions] = useState(true);
+
+    function instructions(event) {
+      event.preventDefault();
+       setShowInstructions(!showInstructions)
+      }
 
     return (
         <div className='CookingRecipeForm-Form'>
@@ -56,6 +62,16 @@ const CookingRecipeForm = () => {
                     <button className='b-return' onClick={() => {window.location.href = "/"}}><IoMdReturnLeft /></button>
                 </>
                 :
+                <>
+                <button onClick={instructions}>Instrucciones</button>
+                {showInstructions ? 
+                <div className="instructions-message">
+                <p>Para adjuntar una imagen debes subirla a un portal como https://imgur.com/ y seleccionar la ruta de la imagen que acabe en .jpg, .png o similar. En el caso de Imgur es el Direct Link</p>
+                <p>Recuerda que todos los campos deben ser rellenados y que la categoría debe ser elegida</p>
+                </div> 
+                : null
+                }
+
                 <form onSubmit={handleSubmit} method="post">
                     
                     <div className='Form-row'>
@@ -65,9 +81,9 @@ const CookingRecipeForm = () => {
                         </div>
                     </div>
                     <div className='Form-row'>
-                        <label>URL de la imagen:</label>
+                        <label title="https://imgur.com/ aquí podrás subir tus fotos y debes introducir la url que acabe en .jpg o similar (Direct Link)">URL de la imagen:</label>
                         <div className="form-row-div">
-                            <input type="url" name="url" onChange={handleChange} autoComplete="off" placeholder="Url de la Imagén" required pattern="https?://.+" />
+                            <input type="url" name="url" onChange={handleChange} autoComplete="off" placeholder="Enlace de Imgur" required pattern="https?://.+" />
                         </div>
                     </div>
                    
@@ -81,17 +97,16 @@ const CookingRecipeForm = () => {
                             <textarea type="text" name="ingredients" onChange={handleChange} id="" placeholder="Ingredientes" required />
                         </div>                      
                     </div>
-                    <div className='Form-row'>
+                    <div className='Form-column'>
                         <label>Receta:</label>
-                        <div className="form-row-div">
-                            <textarea type="text" name="recipe" onChange={handleChange} id="" placeholder="Receta" required />
-                        </div>                      
+                        <textarea rows="8" type="text" name="description" onChange={handleChange} id="" placeholder="Receta" required />                       
                     </div>
                    <div className="div-b-post">
                     <button className="b-post"><BiSave /></button> 
                    </div>
                                      
                 </form>
+                </>
             }
             
         </div>

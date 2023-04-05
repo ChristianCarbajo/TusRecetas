@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar/SearchBar';
 
 
 function MainPage() {
-  const url = "http://localhost:8080/api/v1/cookingrecipe"
+  const url = "http://localhost:8080/api/v1/cookingrecipes"
   const [data, setData] = useState([]);
 
   useEffect(() => {

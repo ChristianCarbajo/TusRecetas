@@ -1,21 +1,16 @@
-.cardContainer {
-    margin: 10% 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    
-}
 
 .cardImage {
     display: flex;
-    position: relative;
-    filter: drop-shadow(0 0 0 #fff);
-    transition: all 0.3s;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
 }
 
 .cardImage img {
     
     height:  55.75vh;
-    width: 20.49vw;
+    width: 80%;
     
 
 

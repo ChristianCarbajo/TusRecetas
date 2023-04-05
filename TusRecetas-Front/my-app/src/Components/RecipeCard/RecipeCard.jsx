@@ -11,14 +11,13 @@ const RecipeCard = ({id, title, url}) => {
 
   return (
     
-    <div>
-      <div className='cardContainer'>
+
+     
         <div className='cardImage'>
-            <img  src={url} alt='' />
-        </div>
-        <h3 onClick={()=> {navigate("/CookingRecipePage", {state: {id}})}} className='cardText'>{title}</h3>
-      </div>      
-    </div>
+          <img  src={url} alt='' />      
+          <h3 onClick={()=> {navigate("/CookingRecipePage", {state: {id}})}} className='cardText'>{title}</h3>
+        </div> 
+
      
   )
 }

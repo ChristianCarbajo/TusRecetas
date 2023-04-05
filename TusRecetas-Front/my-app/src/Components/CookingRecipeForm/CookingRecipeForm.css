@@ -5,15 +5,13 @@
     flex-direction: column;
     background-color: #FDE9D7;
     height: 100%;
+    
 }
-
-/* .FormPage-Form form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center;
-} */
-
+.instructions-message {
+    margin: 5vh;
+    background-color: #FBD1AB;
+    padding: 1vh 2vh 1vh 2vh
+}
 .Form-row {
     display: flex;
     justify-content: center;
@@ -21,8 +19,20 @@
     margin: 2vh 0 2vh 0;
     gap: 3vw;
 }
-
+.Form-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2vh 0 2vh 0;
+    gap: 3vw;
+    margin-top:10vh;
+}
+.Form-column textarea{
+    width: 100%;
+}
 .Form-row label {
+   
     width: 80%;
 }
 
@@ -54,10 +64,14 @@ textarea:focus {
 input {
     width: auto;
     border: none;
-    background-color: #f4e3ffcb;
+    background-color: rgb(253, 231, 204);
     border-style: none;
     border-bottom: #FDE9D7;
     border-bottom-style: outset;
+    font-family: 'Berkshire';
+}
+textarea {
+    font-family: 'Berkshire';
 }
 .div-b-post {
     display: flex;
@@ -82,8 +96,8 @@ input {
 
 label {
     color: rgb(7, 7, 7);
-    font-weight: bold;
     letter-spacing: 0.2vh;
+    font-family: 'Berkshire';
 }
 
 .return-h2{
