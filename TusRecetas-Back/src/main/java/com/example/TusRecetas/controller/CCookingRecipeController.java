@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/cookingrecipe")
+@RequestMapping("api/v1/cookingrecipes")
 @CrossOrigin("*")
 public class CCookingRecipeController {
 
@@ -41,6 +41,7 @@ public class CCookingRecipeController {
             currentCookingRecipe.setDescription(cookingRecipe.getDescription());
             currentCookingRecipe.setIngredients(cookingRecipe.getIngredients());
             currentCookingRecipe.setUrl(cookingRecipe.getUrl());
+            currentCookingRecipe.setCategories(cookingRecipe.getCategories());
             currentCookingRecipe = iCookingRecipe.save(currentCookingRecipe);
             return ResponseEntity.ok(currentCookingRecipe);
         }

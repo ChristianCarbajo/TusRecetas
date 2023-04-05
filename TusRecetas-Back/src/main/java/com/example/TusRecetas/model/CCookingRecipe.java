@@ -16,19 +16,22 @@ public class CCookingRecipe {
     private String title;
     private String ingredients;
     private String description;
-    private String url;;
+    private String url;
+    private String categories;
 
 
 
-    public CCookingRecipe(int id, String title, String description, String url, String ingredients){
+    public CCookingRecipe(int id, String title, String description, String url, String ingredients, String categories){
         this.description = description;
         this.title = title;
         this.id = id;
         this.url = url;
         this.ingredients = ingredients;
+        this.categories = categories;
 
     }
-
+    public CCookingRecipe() {
+    }
 
     public int getId() {
         return id;
@@ -67,6 +70,12 @@ public class CCookingRecipe {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
+    }
+    public String getCategories() {
+        return categories;
+    }
+    public void setCategories(String categories) {
+        this.categories = categories;
     }
 
 }
