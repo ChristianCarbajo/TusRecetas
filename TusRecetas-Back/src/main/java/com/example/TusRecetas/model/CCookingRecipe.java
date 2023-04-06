@@ -15,8 +15,11 @@ public class CCookingRecipe {
     private int id;
     private String title;
     private String ingredients;
+
+    @Column(length = 1000)
     private String description;
     private String url;
+
     private String categories;
 
 
