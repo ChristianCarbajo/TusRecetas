@@ -1,0 +1,20 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.searchBar {
+    margin:2vh;
+}
+.addRecipe {
+    margin-top: 3vh;
+}
+.addRecipeButton{
+    height: 5vh;
+    width:10vh;
+    cursor: pointer;
+    border-color: black;
+    border-radius: 15%;
+    background-color: #FBD1AB;
+}
+

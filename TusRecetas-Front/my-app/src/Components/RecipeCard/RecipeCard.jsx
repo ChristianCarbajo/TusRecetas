@@ -4,7 +4,7 @@ import './RecipeCard.css'
 
 
 
-const RecipeCard = ({id, title, url}) => {
+const RecipeCard = ({id, title, url, ingredients}) => {
   
   let navigate = useNavigate()
 
@@ -13,9 +13,12 @@ const RecipeCard = ({id, title, url}) => {
     
 
      
-        <div className='cardImage'>
-          <img  src={url} alt='' />      
-          <h3 onClick={()=> {navigate("/CookingRecipePage", {state: {id}})}} className='cardText'>{title}</h3>
+        <div onClick={()=> {navigate("/CookingRecipePage", {state: {id}})}}  className='cardImage'>
+          <img  src={url} alt='' />   
+          <div className='cardDescription'>  
+          <h3 onClick={()=> {navigate("/CookingRecipePage", {state: {id}})}} className='cardTitle'>{title}</h3>
+          <p className='cardIngredients'>Ingredientes: {ingredients}</p>
+          </div> 
         </div> 
 
      

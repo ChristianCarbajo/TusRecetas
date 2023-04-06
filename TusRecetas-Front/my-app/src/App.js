@@ -3,7 +3,7 @@ import './App.css';
 import FormPageView from './View/FormPageView';
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainPageView from './View/MainPageView';
-import CookingRecipePage from './Components/CookingRecipePage/CookingRecipePage'
+import RecipePageView from './View/RecipePageView';
 import { Link } from 'react-router-dom';
 
 function App() {
@@ -15,13 +15,11 @@ function App() {
         element: <FormPageView />
        },{
         path: "/CookingRecipePage",
-         element: <CookingRecipePage />
+         element: <RecipePageView />
 }]);
       return (
       
-        <div className="App">
-       
-             
+        <div className="App">     
               <RouterProvider router={router} />
         </div>
       );

@@ -6,7 +6,7 @@ function Header(){
 <div>
     
 <Link className="logo" to="/"><img className='logo' src={logo}/></Link>
-<Link  to="/CookingRecipeForm"><button>Añade una receta</button></Link>
+
 </div>
     )
 }

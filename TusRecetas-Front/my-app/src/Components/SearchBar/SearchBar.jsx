@@ -1,11 +1,11 @@
-
+import "./SearchBar.css"
 
 
 
 function SearchBar(){
     return(
-        <div>
-            aquí va una barra
+        <div className="searchBar">
+           <input type="text" name="search" autoComplete="off" id="" placeholder="Haz tu busqueda"/>
         </div>
     )
 }

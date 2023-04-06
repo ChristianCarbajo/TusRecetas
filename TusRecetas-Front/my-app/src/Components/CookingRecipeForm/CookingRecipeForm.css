@@ -48,7 +48,7 @@ textarea,
 label {
     font-size: 15px;
     font-weight: 400;
-    font-family: "Jost";
+    font-family: 'Berkshire';
 
 
 }
@@ -64,15 +64,12 @@ textarea:focus {
 input {
     width: auto;
     border: none;
-    background-color: rgb(253, 231, 204);
+    background-color: #FBD1AB;
     border-style: none;
     border-bottom: #FDE9D7;
-    border-bottom-style: outset;
-    font-family: 'Berkshire';
+    border-bottom-style: outset;  
 }
-textarea {
-    font-family: 'Berkshire';
-}
+
 .div-b-post {
     display: flex;
     justify-content: end;
@@ -97,7 +94,6 @@ textarea {
 label {
     color: rgb(7, 7, 7);
     letter-spacing: 0.2vh;
-    font-family: 'Berkshire';
 }
 
 .return-h2{
