@@ -9,14 +9,17 @@ import ApiPutService from '../../Services/ApiPutService.js';
 import React, { useEffect, useState } from 'react'
 import CategoriesInput from '../CategoriesInput/CategoriesInput';
 import {useLocation, useNavigate } from 'react-router-dom';
+import ApiGetbyIdService from "../../Services/ApiGetIdService";
 
 const CookingRecipeForm = () => {
+ 
 
     let url = "http://localhost:8080/api/v1/cookingrecipes"
 
     const categories = ["Elige una categoría","Primer Plato", "Segundo Plato", "Postre", "Vegetariano"]
 
-    let [item, setItem] = useState({ categories: categories[0]})
+    let [item, setItem] = useState({categories: categories[0]})
+
 
     let [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -39,6 +42,7 @@ const CookingRecipeForm = () => {
         let temp_item = item
         temp_item[name] = value
         setItem(temp_item)
+      
     }
     function handleSubmit(event) {
         event.preventDefault();
@@ -52,7 +56,14 @@ const CookingRecipeForm = () => {
       event.preventDefault();
        setShowInstructions(!showInstructions)
       }
-
+    //   const [data, setData] = useState([{}]);
+    //   const idInState = useLocation().state.id
+    //   useEffect(() => {
+    //     ApiGetbyIdService(url, idInState)
+    //       .then((data) => setData(data))
+    //       .catch((error) => console.error(error));
+    //   }, []);
+// console.info(data.title)
     return (
         <div className='CookingRecipeForm-Form'>
             <Toaster />
@@ -77,7 +88,7 @@ const CookingRecipeForm = () => {
                     <div className='Form-row'>
                         <label>Título:</label>
                         <div className="form-row-div">
-                            <input type="text" name="title" onChange={handleChange} id="" placeholder="Título" required />
+                            <input type="text" name="title" onChange={handleChange} id=""  placeholder="Título" required />
                         </div>
                     </div>
                     <div className='Form-row'>

@@ -6,7 +6,7 @@ function RecipePageView(){
     return(
         <div>
             <Header/>
-            <CookingRecipePage/>
+            <CookingRecipePage />
         </div>
     )
 }

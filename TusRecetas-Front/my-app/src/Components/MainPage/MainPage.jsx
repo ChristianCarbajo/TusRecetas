@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 function MainPage() {
   const url = "http://localhost:8080/api/v1/cookingrecipes"
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     ApiGetService(url)
@@ -15,20 +16,33 @@ function MainPage() {
       .catch((error) => console.error(error));
   }, []);
 
+  const handleSearch = (searchTerm) => {
+    const results = data.filter((item) => {
+      const titleMatch = item.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const ingredientsMatch = item.ingredients.toLowerCase().includes(searchTerm.toLowerCase());
+      const categoriesMatch = item.categories.toLowerCase().includes(searchTerm.toLowerCase())
+      return titleMatch || ingredientsMatch || categoriesMatch;
+    });
+    setFilteredData(results);
+  }
+
+  const itemsToRender = filteredData.length > 0 ? filteredData : data;
+
   return (
     <div className='main'>
       <div className='addRecipe'>
-     <Link to="/CookingRecipeForm"><button className='addRecipeButton'>Añade una receta</button></Link>
-     </div>
-      <div className='searchBar'><SearchBar /></div>
-      {JSON.stringify(data) !== JSON.stringify([]) ?
-        data.map((item) => (
-          <RecipeCard key={item.id} id={item.id} title={item.title} url={item.url} ingredients={item.ingredients} />
+        <Link to="/CookingRecipeForm"><button className='addRecipeButton'>Añade una receta</button></Link>
+      </div>
+      <div className='searchBar'>
+        <SearchBar handleSearch={handleSearch} />
+      </div>
+      {itemsToRender.length > 0 ?
+        itemsToRender.map((item) => (
+          <RecipeCard key={item.id} id={item.id} title={item.title} url={item.url} ingredients={item.ingredients} categories={item.categories} />
         ))
         :
-        <h3>No hay ninguna receta</h3>
+        <h3>No hay resultados de búsqueda</h3>
       }
-
     </div>
   )
 }
