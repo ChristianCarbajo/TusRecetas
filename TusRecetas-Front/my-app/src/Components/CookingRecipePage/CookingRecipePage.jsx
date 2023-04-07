@@ -12,6 +12,12 @@ import { Link } from 'react-router-dom';
 function CookingRecipePage() {
   const url = "http://localhost:8080/api/v1/cookingrecipes"
   const idInState = useLocation().state.id
+  const titleInState = useLocation().state.title
+  const ingredientsInState = useLocation().state.ingredients
+  const descriptionInState = useLocation().state.description
+  const urlInState = useLocation().state.url
+ console.info(titleInState)
+
   const [data, setData] = useState([{}]);
   const navigate = useNavigate()
 
@@ -35,7 +41,7 @@ function CookingRecipePage() {
       </div>
       <div className="recipeIcons">
        <Link to="/"><AiFillDelete onClick={ handleDelete } className="recipeIcon" size={25} color="black" /></Link>
-      <AiFillEdit onClick={() => { navigate("/CookingRecipeForm", { state: { id: idInState } }) }} className="recipeIcon" size={25} color="black" />
+      <AiFillEdit onClick={() => { navigate("/CookingRecipeForm", { state: { id: idInState, title:titleInState, ingredients: ingredientsInState, description: descriptionInState, url: urlInState} }) }} className="recipeIcon" size={25} color="black" />
       </div>
       
       <h2 className="recipeTitle">{data.title}</h2>

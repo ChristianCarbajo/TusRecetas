@@ -38,7 +38,7 @@ function MainPage() {
       </div>
       {itemsToRender.length > 0 ?
         itemsToRender.map((item) => (
-          <RecipeCard key={item.id} id={item.id} title={item.title} url={item.url} ingredients={item.ingredients} categories={item.categories} />
+          <RecipeCard key={item.id} id={item.id} title={item.title} url={item.url} ingredients={item.ingredients} categories={item.categories} description={item.description}/>
         ))
         :
         <h3>No hay resultados de búsqueda</h3>

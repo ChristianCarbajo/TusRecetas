@@ -1,6 +1,4 @@
 import "./CookingRecipeForm.css"
-import SaveButton from "../../IMG/guardar-el-archivo.png"
-import { BsPlusSquareFill } from "react-icons/bs";
 import { BiSave } from "react-icons/bi";
 import { IoMdReturnLeft } from "react-icons/io";
 import toast, { Toaster } from 'react-hot-toast';
@@ -10,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import CategoriesInput from '../CategoriesInput/CategoriesInput';
 import {useLocation, useNavigate } from 'react-router-dom';
 import ApiGetbyIdService from "../../Services/ApiGetIdService";
+
 
 const CookingRecipeForm = () => {
  
@@ -22,6 +21,7 @@ const CookingRecipeForm = () => {
 
 
     let [isSubmitted, setIsSubmitted] = useState(false)
+    
 
     const State = useLocation().state
 
@@ -48,7 +48,8 @@ const CookingRecipeForm = () => {
         event.preventDefault();
         State ? ApiPutService(url, item, State.id) : ApiPostService(url, item)
         notify()
-        setIsSubmitted(true)
+            setIsSubmitted(true);
+          
     }
     const [showInstructions, setShowInstructions] = useState(true);
 
@@ -56,14 +57,8 @@ const CookingRecipeForm = () => {
       event.preventDefault();
        setShowInstructions(!showInstructions)
       }
-    //   const [data, setData] = useState([{}]);
-    //   const idInState = useLocation().state.id
-    //   useEffect(() => {
-    //     ApiGetbyIdService(url, idInState)
-    //       .then((data) => setData(data))
-    //       .catch((error) => console.error(error));
-    //   }, []);
-// console.info(data.title)
+     
+     console.info(State)
     return (
         <div className='CookingRecipeForm-Form'>
             <Toaster />
@@ -88,13 +83,13 @@ const CookingRecipeForm = () => {
                     <div className='Form-row'>
                         <label>Título:</label>
                         <div className="form-row-div">
-                            <input type="text" name="title" onChange={handleChange} id=""  placeholder="Título" required />
+                            <input type="text" name="title" onChange={handleChange} id=""  defaultValue={State ? State.title : ""} placeholder="Título" required />
                         </div>
                     </div>
                     <div className='Form-row'>
                         <label title="https://imgur.com/ aquí podrás subir tus fotos y debes introducir la url que acabe en .jpg o similar (Direct Link)">URL de la imagen:</label>
                         <div className="form-row-div">
-                            <input type="url" name="url" onChange={handleChange} autoComplete="off" placeholder="Enlace de Imgur" required pattern="https?://.+" />
+                            <input type="url" name="url" onChange={handleChange} defaultValue={State ? State.url: ""} autoComplete="off" placeholder="Enlace de Imgur" required pattern="https?://.+" />
                         </div>
                     </div>
                    
@@ -105,12 +100,12 @@ const CookingRecipeForm = () => {
                     <div className='Form-row'>
                         <label>Ingredientes:</label>
                         <div className="form-row-div">
-                            <textarea type="text" name="ingredients" onChange={handleChange} id="" placeholder="Ingredientes" required />
+                            <textarea type="text" name="ingredients" onChange={handleChange} defaultValue={State ? State.ingredients : ""} id="" placeholder="Ingredientes" required />
                         </div>                      
                     </div>
                     <div className='Form-column'>
                         <label>Receta:</label>
-                        <textarea rows="8" type="text" name="description" onChange={handleChange} id="" placeholder="Receta" required />                       
+                        <textarea rows="8" type="text" name="description"  defaultValue={State ? State.description : ""} onChange={handleChange} id="" placeholder="Receta" required />                       
                     </div>
                    <div className="div-b-post">
                     <button className="b-post"><BiSave /></button> 
