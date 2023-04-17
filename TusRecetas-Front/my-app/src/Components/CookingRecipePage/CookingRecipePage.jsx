@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ApiGetbyIdService from "../../Services/ApiGetIdService";
-import ApiGetService from "../../Services/ApiGetService";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai"
 import "./CookingRecipePage.css";
 import { useLocation, useNavigate } from "react-router-dom";

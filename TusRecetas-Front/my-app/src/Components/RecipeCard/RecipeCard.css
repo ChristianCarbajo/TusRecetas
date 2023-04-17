@@ -6,26 +6,24 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 70%;
+
 }
 
 .cardImage img {   
-    height: 8vh;   
-     
+width:30vw;
+
 }
 .cardDescription{
-    margin-left: 1vh;
+     margin-left: 3vh;
 }
-.cardDescriptionItem {
-    font-size: 1.2vh;
+.cardDescriptionItem { 
+    font-size: small;
 }
 .cardTitle{
-    font-size: medium;
+    font-size: larger;
     font-weight: 100;
     letter-spacing: 0.2vh;
     cursor: pointer;
   
-}
-
-.cardText:hover{
-font-weight: bold;
 }

@@ -17,7 +17,9 @@ function MainPage() {
   }, []);
 
   const handleSearch = (searchTerm) => {
+   
     const results = data.filter((item) => {
+      
       const titleMatch = item.title.toLowerCase().includes(searchTerm.toLowerCase());
       const ingredientsMatch = item.ingredients.toLowerCase().includes(searchTerm.toLowerCase());
       const categoriesMatch = item.categories.toLowerCase().includes(searchTerm.toLowerCase())

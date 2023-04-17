@@ -48,7 +48,7 @@ const CookingRecipeForm = () => {
         event.preventDefault();
         State ? ApiPutService(url, item, State.id) : ApiPostService(url, item)
         notify()
-            setIsSubmitted(true);
+        setIsSubmitted(true);
           
     }
     const [showInstructions, setShowInstructions] = useState(true);
@@ -109,15 +109,12 @@ const CookingRecipeForm = () => {
                     </div>
                    <div className="div-b-post">
                     <button className="b-post"><BiSave /></button> 
-                   </div>
-                                     
+                   </div>                 
                 </form>
                 </>
             }
-            
         </div>
-    )
-            
+    )          
 }
 
 export default CookingRecipeForm
