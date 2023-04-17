@@ -16,14 +16,16 @@ const CookingRecipeForm = () => {
     let url = "http://localhost:8080/api/v1/cookingrecipes"
 
     const categories = ["Elige una categoría","Primer Plato", "Segundo Plato", "Postre", "Vegetariano"]
+    const State = useLocation().state
 
-    let [item, setItem] = useState({categories: categories[0]})
+    let [item, setItem] = useState(State ? State : {categories: categories[0], title: "", url: "", ingredients: "", description: ""})
 
 
     let [isSubmitted, setIsSubmitted] = useState(false)
     
 
-    const State = useLocation().state
+   
+    console.info(State)
 
     const notify = () => toast('Receta añadida! ');
 
@@ -35,15 +37,17 @@ const CookingRecipeForm = () => {
         temp_item["categories"] = category
         setItem(temp_item)
     };
+
     function handleChange(event) {
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        let temp_item = item
-        temp_item[name] = value
-        setItem(temp_item)
-      
-    }
+        let temp_item = { ...item };
+        if (value !== undefined) {
+          temp_item[name] = value;
+        }
+        setItem(temp_item);
+      }
     function handleSubmit(event) {
         event.preventDefault();
         State ? ApiPutService(url, item, State.id) : ApiPostService(url, item)
@@ -58,7 +62,7 @@ const CookingRecipeForm = () => {
        setShowInstructions(!showInstructions)
       }
      
-     console.info(State)
+   
     return (
         <div className='CookingRecipeForm-Form'>
             <Toaster />
