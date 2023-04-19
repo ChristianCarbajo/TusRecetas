@@ -15,9 +15,9 @@ function CookingRecipePage() {
   const ingredientsInState = useLocation().state.ingredients
   const descriptionInState = useLocation().state.description
   const urlInState = useLocation().state.url
- console.info(titleInState)
+ 
 
-  const [data, setData] = useState([{}]);
+  const [data, setData] = useState({});
   const navigate = useNavigate()
 
   const handleDelete = () => {
@@ -32,7 +32,7 @@ function CookingRecipePage() {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
-
+  console.info(data)
   return (
     <div className="recipeBody">
       <div className="recipeImgContainer">
