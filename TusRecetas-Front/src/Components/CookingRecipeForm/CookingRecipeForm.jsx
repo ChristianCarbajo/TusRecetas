@@ -7,7 +7,7 @@ import ApiPutService from '../../Services/ApiPutService.js';
 import React, { useEffect, useState } from 'react'
 import CategoriesInput from '../CategoriesInput/CategoriesInput';
 import {useLocation, useNavigate } from 'react-router-dom';
-import ApiGetbyIdService from "../../Services/ApiGetIdService";
+
 
 
 const CookingRecipeForm = () => {
@@ -22,10 +22,7 @@ const CookingRecipeForm = () => {
 
 
     let [isSubmitted, setIsSubmitted] = useState(false)
-    
 
-   
-    console.info(State)
 
     const notify = () => toast('Receta añadida! ');
 

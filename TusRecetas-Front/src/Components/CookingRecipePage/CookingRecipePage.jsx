@@ -32,6 +32,7 @@ function CookingRecipePage() {
       .then((data) => setData(data))
       .catch((error) => console.error(error));
   }, []);
+  
   console.info(data)
   return (
     <div className="recipeBody">
